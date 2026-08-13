@@ -28,8 +28,8 @@
 <meta name="description" content="A game where you find hidden words in a grid using number hints. 격자 속에 숨은 단어를 숫자 힌트로 찾는 게임">
 <meta name="keywords" content="낱말찾기, 단어찾기, 워드서치, 단어게임, 낱말퍼즐, 무료 두뇌게임, word search, word puzzle, word game, vocabulary game, brain game, Korean word game">
 <meta name="author" content="Soosooland">
-<!-- Open Graph -->
 
+<!-- Open Graph -->
 <meta property="og:title" content="WordMine - Word Search Puzzle Game">
 <meta property="og:description" content="A game where you find hidden words in a grid using number hints. 격자 속에 숨은 단어를 숫자 힌트로 찾는 게임">
 <meta property="og:type" content="website">
@@ -119,6 +119,29 @@ body {
 }
 .difficulty-btn:hover { background-color: #1baf8f; color: #fff; transform: scale(1.05); }
 .difficulty-btn.active { background-color: #4CAF50; border: 2px solid #45a049; color: #fff; }
+ .game-area {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 20px;
+  }
+
+  .game-button {
+    font-size: 18px;
+    background-color: #FFD6BA;
+    padding: 10px 22px;
+    margin: 8px;
+    color: #7A2E2E;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+
+  .game-button:hover {
+    background-color: #FF9494;
+    color: white;
+    transform: scale(1.05);
+  }
   .container {
     display: flex;
     align-items: flex-start;
