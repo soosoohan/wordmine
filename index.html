@@ -3,17 +3,17 @@
 <head> 
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Worpuzz - Word Search Puzzle Game | Soosooland</title>
+<title>WordMine - Word Search Puzzle Game | Soosooland</title>
 <script>
   if (window.top !== window.self) {
     window.top.location = "https://soosooland.com";
   }
     if (window.innerWidth < 580) {
-    window.location.href = 'https://soosooland.com/minemini/';
+    window.location.href = 'https://soosooland.com/minimine/';
   }
   console.log("© 2025-2026 Soosooland by 한수수. All rights reserved.");
   console.log("https://soosooland.com");
-  console.log("🎮 Wordmine | Born: 2025-08-31");
+  console.log("🎮 Wordmine | Born: 2025-08-13");
 </script> 
    <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-4YZHC1G9FN"></script>
@@ -23,29 +23,39 @@
   gtag('js', new Date());
   gtag('config', 'G-4YZHC1G9FN');
 </script>
-
-
+  
 <!-- SEO Meta Tags -->
-<meta name="description" content="<meta name="description" content="무료 낱말찾기 게임. 단어 찾기 퍼즐과 워드서치로 어휘력 향상. 온라인 두뇌 게임을 지금 바로 플레이하세요.">
+<meta name="description" content="A game where you find hidden words in a grid using number hints. 격자 속에 숨은 단어를 숫자 힌트로 찾는 게임">
 <meta name="keywords" content="낱말찾기, 단어찾기, 워드서치, 단어게임, 낱말퍼즐, 무료 두뇌게임, word search, word puzzle, word game, vocabulary game, brain game, Korean word game">
 <meta name="author" content="Soosooland">
 <!-- Open Graph -->
 
-<meta property="og:title" content="Worpuzz - Word Search Puzzle Game">
-<meta property="og:description" content="Find words hidden in the grid. Compete against computer to score points by finding word endings.">
+<meta property="og:title" content="WordMine - Word Search Puzzle Game">
+<meta property="og:description" content="A game where you find hidden words in a grid using number hints. 격자 속에 숨은 단어를 숫자 힌트로 찾는 게임">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://soosooland.com/worpuzz/">
+<meta property="og:url" content="https://soosooland.com/wordmine/">
 <meta property="og:image" content="https://soosooland.com/images/worpuzz.jpeg">
 <meta property="og:site_name" content="Soosooland">
-<link rel="canonical" href="https://soosooland.com/worpuzz/">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="워드마인(WordMine)">
+<meta name="twitter:description" content="A game where you find hidden words in a grid using number hints. 격자 속에 숨은 단어를 숫자 힌트로 찾는 게임">
+<meta name="twitter:image" content="https://soosooland.com/images/worpuzz.jpeg">
+  
+<link rel="canonical" href="https://soosooland.com/wordmine/">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:locale:alternate" content="en_US">  
+<link rel="alternate" hreflang="en" href="https://soosooland.com/wordmine/">
+<link rel="alternate" hreflang="ko" href="https://soosooland.com/wordmine/">
+<link rel="alternate" hreflang="x-default" href="https://soosooland.com/wordmine/">
 <link rel="stylesheet" href="https://soosooland.com/css/protection.css">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "VideoGame",
-  "name": "Worpuzz",
-  "description": "Word search puzzle game where players find hidden words in a grid",
-  "url": "https://soosooland.com/worpuzz/",
+  "name": "WordMine",
+  "description": "A game where you find hidden words in a grid using number hints.격자 속에 숨은 단어를 숫자 힌트로 찾는 게임",
+  "url": "https://soosooland.com/wordmine/",
   "genre": ["Puzzle", "Word"],
   "gamePlatform": "Web browser",
   "playMode": "SinglePlayer",
@@ -241,7 +251,7 @@ display: none;
                 <button class="language-button active" onclick="toggleLanguage('ko')">한</button>
                 <button class="language-button" onclick="toggleLanguage('en')">EN</button>
             </div><br>
-  <h1>WORPUZZ  </h1>
+  <h1>WordMine  </h1>
   <div class="description">
    <div id="korean-description">
     컴퓨터와 교대로 격자를 클릭하여 숨겨진 단어를 찾아가는 1인용 워퍼즈 게임입니다.<br>
@@ -249,8 +259,7 @@ display: none;
     영어 게임은 3~10글자의 영어 단어가 들어있습니다. <br>
     단어는 가로, 세로, 대각선 방향으로 숨겨져 있으며, 마지막 글자를 열면 해당 단어를 획득합니다.<br>
     더 많은 단어를 찾는 것이 목표이며, 승패 없이 "게임 종료"로 마무리됩니다.<br>
-    🍀 클로버를 열면 상하좌우 4칸이 함께 열리고 한 번 더 턴을 가집니다.<br>
-     <img src="daisy_64x64.png" alt="데이지" style="width:20px; height:20px; vertical-align:middle;"> 데이지를 열면 주변 8칸이 모두 열리며 마찬가지로 추가 턴이 주어집니다.<br>
+    격자에 적힌 숫자는 격자 주변에 있는 글자의 수입니다.<br>
     아래에서 원하는 워드풀을 선택해 게임을 시작하세요.<br>
    </div>
    <div id="english-description" class="hidden">
@@ -258,8 +267,7 @@ display: none;
     The grid is medium-sized: 12×12 for English and 10×10 for Korean.<br>
     The English game contains words from 3 to 10 letters.<br>Words are hidden horizontally, vertically, or diagonally, and you earn the word by revealing its final letter.<br>
     Your goal is to find more words than the computer. There is no winner or loser — the game ends with "Game Over."<br>
-    🍀 If you find a clover, the four adjacent tiles (up, down, left, right) will open, and you get an extra turn.<br>
-     <img src="daisy_64x64.png" alt="데이지" style="width:20px; height:20px; vertical-align:middle;"> If you find a daisy, all eight surrounding tiles will open, and you also get an extra turn.<br>
+    The numbers in the grid show how many letters are adjacent to that cell.<br>
     Choose a word pool below to begin the game.</div>
  </div>
        
@@ -328,7 +336,7 @@ function initLanguage() {
 }
 
 function startGame(poolName, isEnglish) {
-    const page = isEnglish ? 'bot_eng.html' : 'bot_kor.html';
+    const page = isEnglish ? 'wordmine-en.html' : 'wordmine-ko.html';
     location.href = `${page}?pool=${poolName}`;
 }
 </script>
