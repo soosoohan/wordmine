@@ -546,6 +546,25 @@ function switchTurn() {
     npcTimeoutId = setTimeout(() => { npcMove(); }, 1000);
   }
 }
+function isNumberSatisfied(idx) {
+  // idx는 이미 열린 숫자칸이어야 함
+  const num = board[idx];
+  if (typeof num !== 'number') return false;
+
+  const x = idx % gridSize, y = Math.floor(idx / gridSize);
+  let foundLetters = 0;
+  for (let dy = -1; dy <= 1; dy++) {
+    for (let dx = -1; dx <= 1; dx++) {
+      if (dx === 0 && dy === 0) continue;
+      const nx = x + dx, ny = y + dy;
+      if (nx >= 0 && nx < gridSize && ny >= 0 && ny < gridSize) {
+        const nIdx = ny * gridSize + nx;
+        if (revealed[nIdx] && usedIndexes.has(nIdx)) foundLetters++;
+      }
+    }
+  }
+  return foundLetters >= num;
+}
 
 function npcMove() {
   if (resultShown) return;
@@ -566,28 +585,50 @@ function npcMove() {
       : availableCells[Math.floor(Math.random() * availableCells.length)];
 
   } else if (npcDifficulty === 'hard') {
-    let numberedRevealed = [];
-    for (let i = 0; i < totalCells; i++) {
-      if (revealed[i] && !usedIndexes.has(i) && typeof board[i] === 'number' && board[i] > 0) {
-        numberedRevealed.push({ idx: i, value: board[i] });
-      }
-    }
-    numberedRevealed.sort((a, b) => b.value - a.value);
-
-    selectedCell = null;
-    for (let entry of numberedRevealed) {
-      const candidates = getAdjacentCells(entry.idx);
-      if (candidates.length > 0) {
-        selectedCell = candidates[Math.floor(Math.random() * candidates.length)];
-        break;
-      }
-    }
-    if (!selectedCell) {
-      selectedCell = availableCells[Math.floor(Math.random() * availableCells.length)];
-    }
+    selectedCell = pickHardMove();
   }
 
   handleClick(selectedCell, true);
+}
+
+function pickHardMove() {
+  const availableCells = [];
+  for (let i = 0; i < totalCells; i++) if (!revealed[i]) availableCells.push(i);
+  if (availableCells.length === 0) return null;
+
+  // 1순위: 이미 열린 단어 글자 칸 주변
+  let letterAdjacent = [];
+  for (let i = 0; i < totalCells; i++) {
+    if (revealed[i] && usedIndexes.has(i)) {
+      letterAdjacent.push(...getAdjacentCells(i));
+    }
+  }
+  letterAdjacent = [...new Set(letterAdjacent)];
+  if (letterAdjacent.length > 0) {
+    return letterAdjacent[Math.floor(Math.random() * letterAdjacent.length)];
+  }
+
+  // 2순위: 숫자가 큰 칸 주변 - 단, 이미 숫자가 다 채워진(satisfied) 칸은 제외
+  let numberedRevealed = [];
+  for (let i = 0; i < totalCells; i++) {
+    if (revealed[i] && !usedIndexes.has(i) && typeof board[i] === 'number' && board[i] > 0) {
+      if (!isNumberSatisfied(i)) { // ★ satisfied면 후보에서 제외
+        numberedRevealed.push({ idx: i, value: board[i] });
+      }
+    }
+  }
+  numberedRevealed.sort((a, b) => b.value - a.value);
+
+  for (let entry of numberedRevealed) {
+    // 이 숫자칸 주변에서, 아직 안 열린 칸만 후보로
+    const candidates = getAdjacentCells(entry.idx);
+    if (candidates.length > 0) {
+      return candidates[Math.floor(Math.random() * candidates.length)];
+    }
+  }
+
+  // 3순위: 랜덤
+  return availableCells[Math.floor(Math.random() * availableCells.length)];
 }
 
 function handleClick(index, isnpcMove = false) {
