@@ -233,7 +233,7 @@ footer { text-align: center; color: #c3dbdb; font-size: 0.8rem; margin-top: 30px
 
 <div id="difficultyScreen">
   <div class="difficulty-buttons">
-  <button class="difficulty-btn" onclick="setDifficulty('normal')">쉬움</button>
+  <button class="difficulty-btn active" onclick="setDifficulty('easy')">쉬움</button>
   <button class="difficulty-btn" onclick="setDifficulty('hard')">어려움</button>
 </div>
 </div>
@@ -263,7 +263,7 @@ footer { text-align: center; color: #c3dbdb; font-size: 0.8rem; margin-top: 30px
 <script>
 const gridSize = 10;
 const totalCells = gridSize * gridSize;
-let npcDifficulty = 'normal';
+let npcDifficulty = 'easy';
 
 function setDifficulty(level) {
   npcDifficulty = level;
@@ -274,6 +274,7 @@ function setDifficulty(level) {
 let board, revealed, wordMap, foundWords, currentPlayer, foundBy, words, usedIndexes;
 let resultShown = false;
 let npcTimeoutId = null;
+let npcTurnsRemaining = 0;  
 
 const gameEl = document.getElementById('game');
 const userScoreEl = document.getElementById('userScore');
@@ -357,6 +358,7 @@ function init() {
   currentPlayer = 'user';
   usedIndexes = new Set();
   resultShown = false;
+  npcTurnsRemaining = 0;   
 
   if (npcTimeoutId) { clearTimeout(npcTimeoutId); npcTimeoutId = null; }
 
@@ -515,12 +517,23 @@ function updateScore() {
 function updateTurnDisplay() {
   if (resultShown) return;
   const name = currentPlayer === 'user' ? 'USER' : 'NPC';
-  const difficultyLabel = { normal: '(쉬움)', hard: '(어려움)' };
-  currentTurnEl.textContent = `${name}의 차례입니다. ${currentPlayer === 'npc' ? difficultyLabel[npcDifficulty] : ''}`;
+  let suffix = '';
+  if (currentPlayer === 'npc' && npcDifficulty === 'hard') {
+    suffix = npcTurnsRemaining === 2 ? ' (1/2)' : ' (2/2)';
+  }
+  currentTurnEl.textContent = `${name}의 차례입니다.${suffix}`;
 }
 
 function switchTurn() {
-  currentPlayer = currentPlayer === 'user' ? 'npc' : 'user';
+  if (currentPlayer === 'user') {
+    currentPlayer = 'npc';
+    npcTurnsRemaining = (npcDifficulty === 'hard') ? 2 : 1;
+  } else {
+    npcTurnsRemaining--;
+    if (npcTurnsRemaining <= 0) {
+      currentPlayer = 'user';
+    }
+  }
   updateTurnDisplay();
   if (currentPlayer === 'npc' && !resultShown) {
     npcTimeoutId = setTimeout(() => { npcMove(); }, 1000);
