@@ -226,7 +226,7 @@ footer { text-align: center; color: #c3dbdb; font-size: 0.8rem; margin-top: 30px
 
 <div id="difficultyScreen">
   <div class="difficulty-buttons">
-  <button class="difficulty-btn" onclick="setDifficulty('normal')">보통</button>
+  <button class="difficulty-btn" onclick="setDifficulty('normal')">쉬움</button>
   <button class="difficulty-btn" onclick="setDifficulty('hard')">어려움</button>
 </div>
 </div>
@@ -508,7 +508,7 @@ function updateScore() {
 function updateTurnDisplay() {
   if (resultShown) return;
   const name = currentPlayer === 'user' ? 'USER' : 'NPC';
-  const difficultyLabel = { normal: '(보통)', hard: '(어려움)' };
+  const difficultyLabel = { normal: '(쉬움)', hard: '(어려움)' };
   currentTurnEl.textContent = `${name}의 차례입니다. ${currentPlayer === 'npc' ? difficultyLabel[npcDifficulty] : ''}`;
 }
 
