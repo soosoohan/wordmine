@@ -548,7 +548,7 @@ function npcMove() {
 
   let selectedCell;
 
-  if (npcDifficulty === 'normal') {
+  if (npcDifficulty === 'easy') {
     let nearRevealedCells = [];
     for (let i = 0; i < totalCells; i++) {
       if (revealed[i]) nearRevealedCells.push(...getAdjacentCells(i));
