@@ -1,39 +1,72 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
-    <title>워드마인 - 숫자 힌트 한글 단어 찾기 게임 | Soosooland</title>
+<head> 
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WordMine - 단어 찾기 퍼즐 | Soosooland</title>
 <script>
   if (window.top !== window.self) {
     window.top.location = "https://soosooland.com";
   }
+    if (window.innerWidth < 580) {
+    window.location.href = 'https://soosooland.com/minimine/';
+  }
   console.log("© 2025-2026 Soosooland by 한수수. All rights reserved.");
   console.log("https://soosooland.com");
-  console.log("🎮 Wordmine | Born: 2026-08-12");
+  console.log("🎮 Wordmine | Born: 2025-08-13");
+</script> 
+   <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4YZHC1G9FN"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-4YZHC1G9FN');
 </script>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4YZHC1G9FN"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-4YZHC1G9FN');
-    </script>
+  
+<!-- SEO Meta Tags -->
+<meta name="description" content="A game where you find hidden words in a grid using number hints. 격자 속에 숨은 단어를 숫자 힌트로 찾는 게임">
+<meta name="keywords" content="낱말찾기, 단어찾기, 워드서치, 단어게임, 낱말퍼즐, 무료 두뇌게임, word search, word puzzle, word game, vocabulary game, brain game, Korean word game">
+<meta name="author" content="Soosooland">
+<!-- Open Graph -->
 
-    <meta name="description" content="지뢰찾기처럼 숫자 힌트를 보고 한글 단어를 찾아보세요! 컴퓨터와 대결하는 숫자+단어 퍼즐 게임.">
-    <meta name="keywords" content="지뢰찾기, 단어찾기, 워드퍼즐, 한글단어게임, 숫자퍼즐, 전략게임, 두뇌게임, 치매예방">
-    <meta name="author" content="Soosooland">
+<meta property="og:title" content="WordMine - Word Search Puzzle Game">
+<meta property="og:description" content="A game where you find hidden words in a grid using number hints. 격자 속에 숨은 단어를 숫자 힌트로 찾는 게임">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://soosooland.com/wordmine/">
+<meta property="og:image" content="https://soosooland.com/images/worpuzz.jpeg">
+<meta property="og:site_name" content="Soosooland">
 
-    <meta property="og:title" content="워드마인 - 숫자 힌트 한글 단어 찾기 게임">
-    <meta property="og:description" content="컴퓨터와 숫자 힌트로 단어 대결!">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://soosooland.com/wordmine/index.html">
-    <meta property="og:image" content="https://soosooland.com/images/wordmine.jpeg">
-    <meta property="og:site_name" content="Soosooland">
-    <link rel="canonical" href="https://soosooland.com/wordmine/index.html">
-    <meta property="og:locale" content="ko_KR">
-    <link rel="stylesheet" href="https://soosooland.com/css/protection.css">
-    <script src="https://soosooland.com/js/protection.js"></script>
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="워드마인(WordMine)">
+<meta name="twitter:description" content="A game where you find hidden words in a grid using number hints. 격자 속에 숨은 단어를 숫자 힌트로 찾는 게임">
+<meta name="twitter:image" content="https://soosooland.com/images/worpuzz.jpeg">
+  
+<link rel="canonical" href="https://soosooland.com/wordmine/wordmine-ko.html">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:locale:alternate" content="en_US">  
+<link rel="alternate" hreflang="ko" href="https://soosooland.com/wordmine/wordmine-ko.html">
+<link rel="alternate" hreflang="en" href="https://soosooland.com/wordmine/wordmine-en.html">
+<link rel="stylesheet" href="https://soosooland.com/css/protection.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "VideoGame",
+  "name": "WordMine",
+  "description": "A game where you find hidden words in a grid using number hints.격자 속에 숨은 단어를 숫자 힌트로 찾는 게임",
+  "url": "https://soosooland.com/wordmine/wordmine-ko.html",
+  "genre": ["Puzzle", "Word"],
+  "gamePlatform": "Web browser",
+  "playMode": "SinglePlayer",
+  "inLanguage": ["ko"],
+  "isPartOf": {
+    "@type": "VideoGameSeries",
+    "name": "워드마인",
+    "url": "https://soosooland.com/wordmine/"
+}
+</script>
+<link rel="stylesheet" href="https://soosooland.com/css/protection.css">
+<script src="https://soosooland.com/js/protection.js"></script>
 <style>
  * { margin: 0; padding: 0; box-sizing: border-box; }
 body {
