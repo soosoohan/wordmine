@@ -401,13 +401,20 @@ function canPlaceWord(word, x, y, dx, dy) {
 }
 
 function placeWord(word) {
-  const directions = [{ x: 1, y: 0 }, { x: 0, y: 1 }, { x: 1, y: 1 }];
+  const directions = [
+    { x: 1, y: 0 },
+    { x: 0, y: 1 },
+    { x: 1, y: 1 },
+  ];
   const shuffledDirections = directions.sort(() => Math.random() - 0.5);
+
   for (let dir of shuffledDirections) {
     const startY = Math.floor(Math.random() * gridSize);
+    const startX = Math.floor(Math.random() * gridSize); // ★ 추가
     for (let i = 0; i < gridSize; i++) {
       const y = (startY + i) % gridSize;
-      for (let x = 0; x < gridSize; x++) {
+      for (let j = 0; j < gridSize; j++) {
+        const x = (startX + j) % gridSize; // ★ 순서 랜덤화
         if (canPlaceWord(word, x, y, dir.x, dir.y)) {
           let positions = [];
           for (let i = 0; i < word.length; i++) {
