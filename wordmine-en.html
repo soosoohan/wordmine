@@ -365,8 +365,8 @@ function canPlaceWord(word, x, y, dx, dy) {
 
 function getZone(x, y) {
   // 10x10을 2x2 존(각 5x5)으로 분할
-  const zoneX = x < 5 ? 0 : 1;
-  const zoneY = y < 5 ? 0 : 1;
+  const zoneX = x < 6 ? 0 : 1;
+  const zoneY = y < 6 ? 0 : 1;
   return zoneY * 2 + zoneX; // 0,1,2,3
 }
 
