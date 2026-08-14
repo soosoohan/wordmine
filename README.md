@@ -8,37 +8,35 @@ All games are registered copyrights. Unauthorized copying or redistribution is p
 Wordmine은 격자를 탐험하여 숨겨진 단어를 찾는 게임입니다!  
 Wordmine is a game where you explore a grid to find hidden words!   
 
-(“Worpuzz”라는 이름은 “Word”와 “mine”의 조합입니다.)  
-(The name “Worpuzz” is a combination of “Word” and “mine.”)
+(“Wordmine”라는 이름은 “Word”와 “mine”의 조합입니다.)  
+(The name “Wordmine” is a combination of “Word” and “mine.”)
 
 ### 🔎 게임 방법 / How to Play
 
-- 격자 뒤에 행운의 네잎 토끼풀과  데이지와 숨겨진 단어가 있습니다!  
-  Behind the grid are lucky four-leaf clovers, daisies, and hidden words!   
+##워퍼즈의 기본 규칙 / Basic Rules of Worpuzz
 
-- 단어들이 격자 내에서 가로, 세로, 대각선으로 숨겨져 있습니다.  
-  Words are hidden horizontally, vertically, and diagonally within a grid.
-
+- 이 게임은 지뢰찾기를 개조한 워드서치 게임입니다.  
+- 단어는 가로, 세로, 대각선 방향으로 숨겨져 있으며, 마지막 글자를 열면 해당 단어를 획득합니다.
 - 셀을 클릭하여 한 번에 하나의 글자를 공개하고 숨겨진 단어를 찾으세요.  
-  Click a cell to reveal one letter at a time and find the hidden words.
-
-- 🍀네잎 토끼풀을 찾으면 상하좌우 격자가 열리고 턴이 유지됩니다.
-  When you find a four-leaf clover, the cells above, below, left, and right open up, and you keep your turn.    
-
-- 🌼데이지를 찾으면 주변의 8개의 격자가 열리고 턴이 유지됩니다.
-  When you find a daisy, the 8 surrounding cells open up, and you keep your turn.    
-
-- 🌼데이지와 🍀토끼풀은 게임이 지루하지 않게 하고, 빈 자리에 랜덤하게 넣은 글자들이 유의미한 단어를 생성하는 가능성을 줄이려고 했고,  단어도 추리하지만 아이템을 노리는 것도 전략입니다.
-  The daisies and clovers serve to keep the game from becoming boring, reduce the possibility of randomly placed letters in empty spaces forming meaningful words, and add a strategic element - it’s not just about deducing words, but also about guessing which items to go for.   
-
-- 전략적으로 격자를 공개하여 가능한 한 많은 단어를 찾으세요.  
-- Strategically uncover the grid to find as many words as possible.
-
+- NPC보다 많은 단어를 찾으면 이깁니다.  
+- 격자에 적힌 숫자는 격자 주변에 있는 글자의 수입니다.  
+- 아래에서 원하는 워드풀을 선택해 게임을 시작하세요.  
 - 옥스퍼드 사전의 단어 난이도 수준을 사용하여 흥미로운 도전을 제공합니다.  
-- Uses the Oxford dictionary’s word difficulty levels for an engaging challenge.
-
 - 한국어와 영어 모두 플레이 가능합니다! 게임은 계속해서 개선되고 업그레이드될 예정입니다.  
+- This is a word search with a minesweeper twist.
+- Words are hidden horizontally, vertically, or diagonally, and you earn the word by revealing its final letter.  
+- Click a cell to reveal one letter at a time and find the hidden words.
+- Your goal is to find more words than the computer.  
+- The numbers in the grid show how many letters are adjacent to that cell.  
+- Choose a word pool below to begin the game.  
+- Uses the Oxford dictionary’s word difficulty levels for an engaging challenge.
 - Playable in both Korean and English! The game will continue to be improved and upgraded.
+
+#워퍼즈와 다른 규칙 / Rules Different from Worpuzz
+
+- 숫자 힌트를 이용해서 숨겨진 단어를 찾으세요.  
+- Look at the number hints and click the grid to find the words.  
+
 
 ### 📝 게임 주제 / Game Topics
 
@@ -57,13 +55,13 @@ We plan to develop games with more diverse topics and in various languages such 
 
 | 격자 크기  grid size     | 👤🆚🤖컴퓨터와 대결   | 👤🆚👤사용자 2인 대결 |👤 혼자 하기 |
 |------------------|--------------|----------------|------|
-|영 8x8 한 7x7  | 워퍼즈 미니 (Worpuzz Mini)        | 메이트 콩(Mate Kong)    |   브리즈 팝(Breeze Pop) |
-|영 12x12 한 10x10    | 워퍼즈(Worpuzz)   | 워퍼즈 메이트(Worpuzz Mate)    | 워퍼즈 브리즈(Worpuzz breeze)|
-|영 14x14 한 12x12    | 워퍼즈 몽(Worpuzz Mong)    | 메이트 찌니(Mate ZZini)   |브리즈 젠(Breeze Zen)|
-|영 16X16 한 14X14 | - |-|브리즈 필드(Breeze Field)|
+|영 8x8 한 7x7  | 워드마인 미니 (Wordmine mini)        | 마인워더 미니(MineWorder mini)    | 워드마인 솔로 미니(WordMine Solo mini) |
+|영 12x12 한 10x10    | 워드마인 (Wordmine)   | 마인워더 (MineWorder)    | 워드마인 솔로(WordMine Solo)|
+|영 14x14 한 12x12    | 워드마인 라지(Wordmine large)    | 마인워더 라지(MineWorder large)   |워드마인 솔로 라지(WordMine Solo large)|
+|영 16X16 한 14X14 | 워드마인 XL (Wordmine XL) |마인워더 XL (MineWorder XL) |워드마인 솔로 XL(WordMine Solo XL)|
 ---
 
-## 워퍼즈메이트 주소 : https://soosooland.com/worpuzzmate/ 
+## 워드마인 주소 : https://soosooland.com/wordmine/ 
 
 ## 🌟 Soosooland - Puzzle Game Hub by Han Soosoo
 
