@@ -531,20 +531,13 @@ function updateTurnDisplay() {
 }
 
 function switchTurn() {
-  if (currentPlayer === 'user') {
-    currentPlayer = 'npc';
-    npcTurnsRemaining = (npcDifficulty === 'hard') ? 2 : 1;
-  } else {
-    npcTurnsRemaining--;
-    if (npcTurnsRemaining <= 0) {
-      currentPlayer = 'user';
-    }
-  }
+  currentPlayer = currentPlayer === 'user' ? 'npc' : 'user';
   updateTurnDisplay();
   if (currentPlayer === 'npc' && !resultShown) {
     npcTimeoutId = setTimeout(() => { npcMove(); }, 1000);
   }
 }
+
 function isNumberSatisfied(idx) {
   // idx는 이미 열린 숫자칸이어야 함
   const num = board[idx];
