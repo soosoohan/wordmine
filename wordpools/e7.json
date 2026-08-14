@@ -2,7 +2,7 @@
 "__comment": "e7",  
 "title": "WORDMINE",
 
-"description": "ORGANISM",
+"description": "ORGANISM\nLook at the number hints and click the grid to find the words.",
 
   "words": {
     "4": ["ASH","CAT","COD","COW","DOG","EEL","ELK","ELM","EMU","EWE","FIG","FIR","FOX","HEN","HOG","IVY","OAK","OWL","PIG","RAM","SOW","YAK","YAM","YEW",
