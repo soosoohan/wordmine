@@ -1,8 +1,8 @@
 
 {
 "__comment": "e10",
-  "title": "WORDMINE US Landmarks",
-"description": "Look at the number hints and click the grid to find the words.",
+  "title": "WORDMINE ",
+"description": "US Landmarks\nLook at the number hints and click the grid to find the words.",
 
   "words": {
   "6": ["MET","MOMA", "ZION","ALAMO", "LACMA","ACADIA", "ARCHES", "DENALI", "MALIBU"],
