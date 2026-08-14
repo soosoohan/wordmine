@@ -623,16 +623,16 @@ function checkGameEnd() {
 
 let winner;
 if (userWords > npcWords) {
-  winner = '사용자 승리!';
+  winner = 'User Wins!';
 } else if (npcWords > userWords) {
-  winner = 'NPC 승리!';
+  winner = 'NPC Wins!';
 } else {
-  winner = '무승부!';
+  winner = "It's a Draw!";
 }
-    currentTurnEl.textContent = `게임 종료! ${winner}승리!`;
+currentTurnEl.textContent = `Game Over! ${winner}`;
     setTimeout(() => {
-      alert(`게임 종료!\n\n사용자: ${userWords} 단어\n컴퓨터: ${npcWords} 단어\n\n${winner} 승리!`);
-    }, 500);
+  alert(`Game Over!\n\nUser: ${userWords} Words\nNPC: ${npcWords} Words\n\n${winner}`);
+}, 500);
   }
 }
 
