@@ -623,13 +623,13 @@ function checkGameEnd() {
 
     let winner;
     if (userWords > npcWords) {
-      winner = 'User Wins!';
+      winner = '사용자가 이겼습니다!';
     } else if (npcWords > userWords) {
-      winner = 'NPC Wins!';
+      winner = 'NPC가 이겼습니다!';
     } else {
-      winner = "It's a Draw!";
+      winner = "무승부입니다!";
     }
-    currentTurnEl.textContent = `Game Over! ${winner} (You: ${userWords} / NPC: ${npcWords})`;
+    currentTurnEl.textContent = `게임 종료! ${winner} (사용자: ${userWords} / NPC: ${npcWords})`;
   }
 }
 
