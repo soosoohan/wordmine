@@ -559,48 +559,6 @@ function getWordAtPosition(idx) {
   }
   return null;
 }
-function findDirectionalContinuation() {
-  const results = [];
-  const revealedLetterCells = [];
-  for (let i = 0; i < totalCells; i++) {
-    if (revealed[i] && usedIndexes.has(i)) revealedLetterCells.push(i);
-  }
-
-  // 확인할 방향 (양방향 다 체크: 가로, 세로, 대각선 두 종류)
-  const dirs = [[1,0], [0,1], [1,1], [1,-1]];
-
-  for (let idx of revealedLetterCells) {
-    const word = getWordAtPosition(idx);
-    if (word && foundWords.has(word)) continue; // 이미 완성된 단어면 스킵
-
-    const x = idx % gridSize, y = Math.floor(idx / gridSize);
-
-    for (let [dx, dy] of dirs) {
-      const nx = x + dx, ny = y + dy;
-      const nIdx = ny * gridSize + nx;
-      if (nx >= 0 && nx < gridSize && ny >= 0 && ny < gridSize
-          && revealed[nIdx] && usedIndexes.has(nIdx)) {
-        // 두 글자가 이어져 있음 = 방향 확정
-        const nWord = getWordAtPosition(nIdx);
-        if (nWord && foundWords.has(nWord)) continue; // 완성된 단어면 스킵
-
-        // 이 방향으로 더 뻗어서 다음 칸 찾기
-        let fx = x + dx * 2, fy = y + dy * 2;
-        let fIdx = fy * gridSize + fx;
-        if (fx >= 0 && fx < gridSize && fy >= 0 && fy < gridSize && !revealed[fIdx]) {
-          results.push(fIdx);
-        }
-        // 반대 방향(단어 시작점 쪽)도 체크
-        let bx = x - dx, by = y - dy;
-        let bIdx = by * gridSize + bx;
-        if (bx >= 0 && bx < gridSize && by >= 0 && by < gridSize && !revealed[bIdx]) {
-          results.push(bIdx);
-        }
-      }
-    }
-  }
-  return [...new Set(results)];
-}
 
 function npcMove() {
   if (resultShown) return;
@@ -624,6 +582,10 @@ function npcMove() {
     selectedCell = pickHardMove();
   }
 
+  if (selectedCell === undefined || selectedCell === null || revealed[selectedCell]) {
+    selectedCell = availableCells[Math.floor(Math.random() * availableCells.length)];
+  }
+
   handleClick(selectedCell, true);
 }
 
@@ -632,27 +594,22 @@ function pickHardMove() {
   for (let i = 0; i < totalCells; i++) if (!revealed[i]) availableCells.push(i);
   if (availableCells.length === 0) return null;
 
-  // 1순위: 이어진 글자 2개 발견 → 방향 확정 → 그 라인 집중 공략
-  let directional = findDirectionalContinuation();
-  if (directional.length > 0) {
-    return directional[Math.floor(Math.random() * directional.length)];
-  }
-
-  // 2순위: 글자 1개만 있는 곳 주변 (아직 방향 불명, 완성된 단어는 제외)
-  let letterAdjacent = [];
-  for (let i = 0; i < totalCells; i++) {
-    if (revealed[i] && usedIndexes.has(i)) {
-      const word = getWordAtPosition(i);
-      if (word && foundWords.has(word)) continue;
-      letterAdjacent.push(...getAdjacentCells(i));
+  // 1순위: 한 글자만 남은 단어 → 그 글자 무조건 클릭
+  let oneLeft = [];
+  for (let word in wordMap) {
+    if (foundWords.has(word)) continue;
+    const positions = wordMap[word].positions;
+    const unrevealed = positions.filter(i => !revealed[i]);
+    if (unrevealed.length === 1) {
+      oneLeft.push(unrevealed[0]);
     }
   }
-  letterAdjacent = [...new Set(letterAdjacent)];
-  if (letterAdjacent.length > 0) {
-    return letterAdjacent[Math.floor(Math.random() * letterAdjacent.length)];
+  oneLeft = [...new Set(oneLeft)];
+  if (oneLeft.length > 0) {
+    return oneLeft[Math.floor(Math.random() * oneLeft.length)];
   }
 
-  // 3순위: 숫자가 큰 칸 주변 (satisfied 칸 제외)
+  // 2순위: 숫자가 큰 칸 주변 (satisfied 칸 제외)
   let numberedRevealed = [];
   for (let i = 0; i < totalCells; i++) {
     if (revealed[i] && !usedIndexes.has(i) && typeof board[i] === 'number' && board[i] > 0) {
@@ -670,7 +627,7 @@ function pickHardMove() {
     }
   }
 
-  // 4순위: 랜덤
+  // 3순위: 랜덤
   return availableCells[Math.floor(Math.random() * availableCells.length)];
 }
 
