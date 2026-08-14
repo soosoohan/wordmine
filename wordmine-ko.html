@@ -523,9 +523,6 @@ function updateTurnDisplay() {
   if (resultShown) return;
   const name = currentPlayer === 'user' ? 'USER' : 'NPC';
   let suffix = '';
-  if (currentPlayer === 'npc' && npcDifficulty === 'hard') {
-    suffix = npcTurnsRemaining === 2 ? ' (1/2)' : ' (2/2)';
-  }
   currentTurnEl.textContent = `${name}의 차례입니다.${suffix}`;
 }
 
