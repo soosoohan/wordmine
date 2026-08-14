@@ -3,12 +3,12 @@
 <head> 
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>WordMine - 단어 찾기 퍼즐 | Soosooland</title>
+<title>WordMine - Word Search Puzzle Game| Soosooland</title>
 <script>
   if (window.top !== window.self) {
     window.top.location = "https://soosooland.com";
   }
-    if (window.innerWidth < 580) {
+    if (window.innerWidth < 560) {
     window.location.href = 'https://soosooland.com/minimine/';
   }
   console.log("© 2025-2026 Soosooland by 한수수. All rights reserved.");
@@ -25,43 +25,43 @@
 </script>
   
 <!-- SEO Meta Tags -->
-<meta name="description" content="A game where you find hidden words in a grid using number hints. 격자 속에 숨은 단어를 숫자 힌트로 찾는 게임">
-<meta name="keywords" content="낱말찾기, 단어찾기, 워드서치, 단어게임, 낱말퍼즐, 무료 두뇌게임, word search, word puzzle, word game, vocabulary game, brain game, Korean word game">
+<meta name="description" content="A game where you find hidden words in a grid using number hints.">
+<meta name="keywords" content="word search, word puzzle, word game, vocabulary game, brain game, Korean word game">
 <meta name="author" content="Soosooland">
 
 <!-- Open Graph -->
 <meta property="og:title" content="WordMine - Word Search Puzzle Game">
-<meta property="og:description" content="A game where you find hidden words in a grid using number hints. 격자 속에 숨은 단어를 숫자 힌트로 찾는 게임">
+<meta property="og:description" content="Find hidden words in a medium-sized grid using number hints.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://soosooland.com/wordmine/">
 <meta property="og:image" content="https://soosooland.com/images/worpuzz.jpeg">
 <meta property="og:site_name" content="Soosooland">
 
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="워드마인(WordMine)">
-<meta name="twitter:description" content="A game where you find hidden words in a grid using number hints. 격자 속에 숨은 단어를 숫자 힌트로 찾는 게임">
+<meta name="twitter:title" content="워드마인 | WordMine">
+<meta name="twitter:description" content="Find hidden words in a medium-sized grid using number hints.">
 <meta name="twitter:image" content="https://soosooland.com/images/worpuzz.jpeg">
   
-<link rel="canonical" href="https://soosooland.com/wordmine/wordmine-ko.html">
-<meta property="og:locale" content="ko_KR">
-<meta property="og:locale:alternate" content="en_US">  
-<link rel="alternate" hreflang="ko" href="https://soosooland.com/wordmine/wordmine-ko.html">
-<link rel="alternate" hreflang="en" href="https://soosooland.com/wordmine/wordmine-en.html">
+<link rel="canonical" href="https://soosooland.com/wordmine/wordmine-en.html">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="ko_KR">  
+<link rel="alternate" hreflang="ko" href="https://soosooland.com/wordmine/wordmine-en.html">
+<link rel="alternate" hreflang="en" href="https://soosooland.com/wordmine/wordmine-ko.html">
 <link rel="stylesheet" href="https://soosooland.com/css/protection.css">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "VideoGame",
   "name": "WordMine",
-  "description": "A game where you find hidden words in a grid using number hints.격자 속에 숨은 단어를 숫자 힌트로 찾는 게임",
-  "url": "https://soosooland.com/wordmine/wordmine-ko.html",
+  "description": "Find hidden words in a medium-sized grid using number hints.",
+  "url": "https://soosooland.com/wordmine/wordmine-en.html",
   "genre": ["Puzzle", "Word"],
   "gamePlatform": "Web browser",
   "playMode": "SinglePlayer",
-  "inLanguage": ["ko"],
+  "inLanguage": ["en"],
   "isPartOf": {
     "@type": "VideoGameSeries",
-    "name": "워드마인",
+    "name": "WordMine",
     "url": "https://soosooland.com/wordmine/"
 }
 </script>
@@ -144,14 +144,14 @@ body {
   #currentTurn { font-size: 20px; margin: 10px; color: #FFE680; font-weight: bold; }
   #game {
     display: grid;
-    grid-template-columns: repeat(10, 1fr);
-    grid-template-rows: repeat(10, 1fr);
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(12, 1fr);
     grid-gap: 4px;
     padding: 10px;
     background-color: #0E756D;
     border-radius: 12px;
-    width: 500px;
-    height: 500px;
+    width: 480px;
+    height: 480px;
     box-sizing: border-box;
     flex-shrink: 0;
   }
@@ -173,13 +173,13 @@ footer { text-align: center; color: #c3dbdb; font-size: 0.8rem; margin-top: 30px
     #difficultyScreen h2 { font-size: 1.5em; }
     .difficulty-btn { font-size: 1.1em; padding: 15px 30px; }
     .container { flex-direction: column; align-items: center; width: 100%; gap: 0; }
-    #game { width: 500px; height: auto; aspect-ratio: 1 / 1; grid-gap: 3px; }
+    #game { width:480px; height: auto; aspect-ratio: 1 / 1; grid-gap: 3px; }
     #npcScore, #userScore { display: none !important; }
     .score-container {
       display: flex !important;
       flex-direction: column;
       gap: 10px;
-      width: 500px;
+      width:480px;
       margin-top: 15px;
     }
     .score-container > div {
@@ -192,7 +192,7 @@ footer { text-align: center; color: #c3dbdb; font-size: 0.8rem; margin-top: 30px
     }
     .score-container h2 { font-size: 1em; margin: 0 0 8px; }
     .score-container p { font-size: 0.95em; display: inline-block; margin: 3px 6px; color: #fff; text-align: left; }
-    .btn-container { margin: 15px 0; width: 95%; max-width: 500px; justify-content: center; }
+    .btn-container { margin: 15px 0; width: 95%; max-width: 480px; justify-content: center; }
     button { font-size: 1em; padding: 12px 25px; flex: 1; max-width: 150px; }
   }
 </style>
@@ -200,25 +200,25 @@ footer { text-align: center; color: #c3dbdb; font-size: 0.8rem; margin-top: 30px
 
 <body>
 <button class="back-button" onclick="location.href='https://soosooland.com/wordmine/index.html'">←</button>
-<h1 id="game-title">워드마인</h1>
-<p id="game-desc">주변 숫자 힌트를 보고 한글 단어를 찾아보세요!</p>
+<h1 id="game-title">게임 제목</h1>
+<p id="game-desc">게임 설명</p>
 
 <div id="gameScreen">
 <div id="currentTurn"></div>
 
 <div class="container">
-  <div id="npcScore"><h2>컴퓨터:</h2></div>
+  <div id="npcScore"><h2>NPC:</h2></div>
   <div id="game"></div>
-  <div id="userScore"><h2>사용자:</h2></div>
+  <div id="userScore"><h2>USER:</h2></div>
 </div>
 
 <div class="score-container">
-  <div id="npcScore-mobile"><h2>컴퓨터:</h2></div>
-  <div id="userScore-mobile"><h2>사용자:</h2></div>
+  <div id="npcScore-mobile"><h2>NPC:</h2></div>
+  <div id="userScore-mobile"><h2>USER:</h2></div>
 </div>
 
 <div class="btn-container">
-  <button id="retryBtn">↻ 다시 시작</button>
+  <button id="retryBtn">↻Try Again</button>
 </div>
 </div>
 <footer>
@@ -226,7 +226,7 @@ footer { text-align: center; color: #c3dbdb; font-size: 0.8rem; margin-top: 30px
 </footer>
 
 <script>
-const gridSize = 10;
+const gridSize = 12;
 const totalCells = gridSize * gridSize;
 let npcDifficulty = 'hard';
 
@@ -273,7 +273,7 @@ window.onload = () => {
   const urlParams = new URLSearchParams(window.location.search);
   const poolFile = urlParams.get('pool');
   if (!poolFile) {
-    words = ["계륵","각골난망", "각양각색", "각인각색", "각자도생", "각주구검", "간난신고", "간담상조", "감개무량", "감언이설", "감지덕지", "갑론을박","가화만사성"];
+    words = ['CAT', 'AGE', 'AREA', 'AWAY','ALSO','BABY','ABOUT', 'ADULT', 'AGAIN','AFTER','ACROSS','ACTION','ACTRESS','ACTIVITY','AFTERNOON'];
     init();
     return;
   }
@@ -476,8 +476,8 @@ function reveal(index) {
 }
 
 function updateScore() {
-  const userHTML = `<h2>사용자:</h2>` + foundBy.user.map(w => `<p>${w}</p>`).join("");
-  const npcHTML = `<h2>컴퓨터:</h2>` + foundBy.npc.map(w => `<p>${w}</p>`).join("");
+  const userHTML = `<h2>USER:</h2>` + foundBy.user.map(w => `<p>${w}</p>`).join("");
+  const npcHTML = `<h2>NPC:</h2>` + foundBy.npc.map(w => `<p>${w}</p>`).join("");
   userScoreEl.innerHTML = userHTML;
   npcScoreEl.innerHTML = npcHTML;
   userScoreMobileEl.innerHTML = userHTML;
@@ -487,9 +487,9 @@ function updateScore() {
 function updateTurnDisplay() {
   // 이미 결과가 표시된 경우 아무 것도 하지 않음
   if (resultShown) return;
-  const name = currentPlayer === 'user' ? '사용자' : 'NPC';
+  const name = currentPlayer === 'user' ? 'USER' : 'NPC';
   let suffix = '';
-  currentTurnEl.textContent = `${name}의 차례입니다.`;
+  currentTurnEl.textContent = `It is ${name}' turn.`;
 }
 
 function switchTurn() {
@@ -623,15 +623,15 @@ function checkGameEnd() {
 
 let winner;
 if (userWords > npcWords) {
-  winner = '사용자 승리!';
+  winner = 'User Wins!';
 } else if (npcWords > userWords) {
-  winner = 'NPC 승리!';
+  winner = 'NPC Wins!';
 } else {
-  winner = '무승부!';
+  winner = 'Draw!';
 }
-    currentTurnEl.textContent = `게임 종료! ${winner}승리!`;
+    currentTurnEl.textContent = `Game Over! ${winner} Wins!`;
     setTimeout(() => {
-      alert(`게임 종료!\n\n사용자: ${userWords} 단어\n컴퓨터: ${npcWords} 단어\n\n${winner} 승리!`);
+      alert(`Game Over!\n\nUser: ${userWords} Words\nNPC: ${npcWords} Words\n\n${winner} Wins!`);
     }, 500);
   }
 }
