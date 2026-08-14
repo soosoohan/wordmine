@@ -173,13 +173,13 @@ footer { text-align: center; color: #c3dbdb; font-size: 0.8rem; margin-top: 30px
     #difficultyScreen h2 { font-size: 1.5em; }
     .difficulty-btn { font-size: 1.1em; padding: 15px 30px; }
     .container { flex-direction: column; align-items: center; width: 100%; gap: 0; }
-    #game { width: 95%; max-width: 500px; height: auto; aspect-ratio: 1 / 1; grid-gap: 3px; }
+    #game { width: 500px; height: auto; aspect-ratio: 1 / 1; grid-gap: 3px; }
     #npcScore, #userScore { display: none !important; }
     .score-container {
       display: flex !important;
       flex-direction: column;
       gap: 10px;
-      width: 456px;
+      width: 500px;
       margin-top: 15px;
     }
     .score-container > div {
@@ -192,7 +192,7 @@ footer { text-align: center; color: #c3dbdb; font-size: 0.8rem; margin-top: 30px
     }
     .score-container h2 { font-size: 1em; margin: 0 0 8px; }
     .score-container p { font-size: 0.95em; display: inline-block; margin: 3px 6px; color: #fff; text-align: left; }
-    .btn-container { margin: 15px 0; width: 95%; max-width: 480px; justify-content: center; }
+    .btn-container { margin: 15px 0; width: 95%; max-width: 500px; justify-content: center; }
     button { font-size: 1em; padding: 12px 25px; flex: 1; max-width: 150px; }
   }
 </style>
@@ -485,16 +485,19 @@ function updateScore() {
 }
 
 function updateTurnDisplay() {
+  // 이미 결과가 표시된 경우 아무 것도 하지 않음
   if (resultShown) return;
-  const name = currentPlayer === 'user' ? 'USER' : 'NPC';
+  const name = currentPlayer === 'user' ? '사용자' : 'NPC';
   let suffix = '';
   currentTurnEl.textContent = `${name}의 차례입니다.`;
 }
 
 function switchTurn() {
+  // 턴을 사용자와 NPC 사이에서 전환
   currentPlayer = currentPlayer === 'user' ? 'npc' : 'user';
   updateTurnDisplay();
   if (currentPlayer === 'npc' && !resultShown) {
+    // NPC 차례가 되면 1초 후 NPC가 수를 둠
     npcTimeoutId = setTimeout(() => { npcMove(); }, 1000);
   }
 }
@@ -539,7 +542,6 @@ function npcMove() {
 
   handleClick(selectedCell, true);
 }
-
 
 function pickHardMove() {
   const availableCells = [];
@@ -618,8 +620,16 @@ function checkGameEnd() {
     if (npcTimeoutId) { clearTimeout(npcTimeoutId); npcTimeoutId = null; }
     const userWords = foundBy.user.length;
     const npcWords = foundBy.npc.length;
-    let winner = userWords > npcWords ? 'USER WINS!' : npcWords > userWords ? 'NPC WINS!' : 'DRAW!';
-    currentTurnEl.textContent = `Game Over! ${winner}승리!`;
+
+let winner;
+if (userWords > npcWords) {
+  winner = '사용자 승리!';
+} else if (npcWords > userWords) {
+  winner = 'NPC 승리!';
+} else {
+  winner = '무승부!';
+}
+    currentTurnEl.textContent = `게임 종료! ${winner}승리!`;
     setTimeout(() => {
       alert(`게임 종료!\n\n사용자: ${userWords} 단어\n컴퓨터: ${npcWords} 단어\n\n${winner} 승리!`);
     }, 500);
