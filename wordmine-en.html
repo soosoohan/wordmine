@@ -627,9 +627,9 @@ if (userWords > npcWords) {
 } else if (npcWords > userWords) {
   winner = 'NPC Wins!';
 } else {
-  winner = 'Draw!';
+  winner = "It's a Draw!";
 }
-    currentTurnEl.textContent = `Game Over! ${winner} Wins!`;
+currentTurnEl.textContent = `Game Over! ${winner}`;
     setTimeout(() => {
       alert(`Game Over!\n\nUser: ${userWords} Words\nNPC: ${npcWords} Words\n\n${winner} Wins!`);
     }, 500);
