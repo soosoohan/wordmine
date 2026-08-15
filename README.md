@@ -127,5 +127,3 @@ This project is registered with the Korea Copyright Commission.
 Created and Developed by: Soosoo Han  
 ⓒ 2025 한수수. 모든 권리는 제작자인 한수수에게 있습니다.   
 © 2025 Soosoo Han. All rights reserved.​​​​​​​​​​​​​​​​   
-
-# wordmine
