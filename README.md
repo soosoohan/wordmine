@@ -51,7 +51,7 @@ Wordmine is a game where you explore a grid to find hidden words!
 앞으로 더 다양한 주제와 중국어, 일본어 같은 다양한 언어로 게임을 개발할 계획입니다.  
 We plan to develop games with more diverse topics and in various languages such as Chinese and Japanese in the future.
   
-### 📌 격자 크기와 게임 종류
+### 📌 격자 크기와 게임 종류 ( 일부 게임은 현재 개발중입니다.)
 
 | 격자 크기  grid size     | 👤🆚🤖컴퓨터와 대결   | 👤🆚👤사용자 2인 대결 |👤 혼자 하기 |
 |------------------|--------------|----------------|------|
