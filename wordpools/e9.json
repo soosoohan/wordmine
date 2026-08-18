@@ -2,7 +2,7 @@
 "__comment": "e9",
   "title": "WORDMINE",
 
-"description": "US States & Cities\nLook at the number hints and click the grid to find the words.",
+"description": "US States & Cities",
 
   "words":  {
     "5": ["IOWA", "OHIO", "UTAH", "BOISE", "DOVER", "FARGO", "IDAHO", "MAINE", "OMAHA"],
