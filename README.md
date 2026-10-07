@@ -58,7 +58,7 @@ We plan to develop games with more diverse topics and in various languages such 
 
 ---
 
-## 워퍼즈마인 주소 : https://soosooland.com/wordmine/ 
+## 워퍼즈마인 (Worpuzz Mine): https://soosooland.com/wordmine/ 
 
 ## 🌟 Soosooland - Puzzle Game Hub by Han Soosoo
 
